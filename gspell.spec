@@ -5,12 +5,12 @@
 Summary:	gspell - a spell-checking library for GTK+
 Summary(pl.UTF-8):	gspell - biblioteka sprawdzania pisowni dla GTK+
 Name:		gspell
-Version:	0.2.1
+Version:	0.2.2
 Release:	1
-License:	GPL v2+
+License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gspell/0.2/%{name}-%{version}.tar.xz
-# Source0-md5:	3a07ee8983f9ec069e1154374c258f9a
+# Source0-md5:	6faf345b19c7c53e8e080578cfbd1a79
 URL:		https://wiki.gnome.org/Projects/gspell
 BuildRequires:	enchant-devel >= 1.6.0
 BuildRequires:	gettext-tools >= 0.19.4
@@ -18,9 +18,7 @@ BuildRequires:	glib2-devel >= 1:2.44
 BuildRequires:	gobject-introspection-devel >= 1.42.0
 BuildRequires:	gtk+3-devel >= 3.16
 BuildRequires:	gtk-doc >= 1.24
-BuildRequires:	gtksourceview3-devel >= 3.16
 BuildRequires:	iso-codes >= 0.35
-BuildRequires:	libxml2-devel >= 1:2.5.0
 BuildRequires:	pkgconfig
 BuildRequires:	vala
 BuildRequires:	tar >= 1:1.22
@@ -28,9 +26,7 @@ BuildRequires:	xz
 Requires:	enchant >= 1.6.0
 Requires:	glib2 >= 1:2.36.0
 Requires:	gtk+3 >= 3.16
-Requires:	gtksourceview3 >= 3.16
 Requires:	iso-codes >= 0.35
-Requires:	libxml2 >= 1:2.5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -51,8 +47,6 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	enchant-devel >= 1.6.0
 Requires:	glib2-devel >= 1:2.44
 Requires:	gtk+3-devel >= 3.16
-Requires:	gtksourceview3-devel >= 3.16
-Requires:	libxml2-devel >= 1:2.5.0
 
 %description devel
 Header files for gspell library.
