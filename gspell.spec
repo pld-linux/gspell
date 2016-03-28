@@ -6,7 +6,7 @@ Summary:	gspell - a spell-checking library for GTK+
 Summary(pl.UTF-8):	gspell - biblioteka sprawdzania pisowni dla GTK+
 Name:		gspell
 Version:	0.2.3
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gspell/0.2/%{name}-%{version}.tar.xz
@@ -20,8 +20,8 @@ BuildRequires:	gtk+3-devel >= 3.16
 BuildRequires:	gtk-doc >= 1.24
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	pkgconfig
-BuildRequires:	vala
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	vala
 BuildRequires:	xz
 Requires:	enchant >= 1.6.0
 Requires:	glib2 >= 1:2.36.0
@@ -83,6 +83,9 @@ Summary(pl.UTF-8):	API języka Vala do biblioteki gspell
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n vala-gspell
 Vala API for gspell library.
