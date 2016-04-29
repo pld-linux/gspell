@@ -17,7 +17,7 @@ BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.44
 BuildRequires:	gobject-introspection-devel >= 1.42.0
 BuildRequires:	gtk+3-devel >= 3.20
-BuildRequires:	gtk-doc >= 1.24
+BuildRequires:	gtk-doc >= 1.25
 BuildRequires:	iso-codes >= 0.35
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
