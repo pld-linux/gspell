@@ -5,12 +5,12 @@
 Summary:	gspell - a spell-checking library for GTK+
 Summary(pl.UTF-8):	gspell - biblioteka sprawdzania pisowni dla GTK+
 Name:		gspell
-Version:	1.8.3
+Version:	1.8.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gspell/1.8/%{name}-%{version}.tar.xz
-# Source0-md5:	d0892000d944e87fd74e8611ef400cdb
+# Source0-md5:	378dee938c08c24b559953cbcad83942
 URL:		https://wiki.gnome.org/Projects/gspell
 BuildRequires:	enchant2-devel >= 2.1.3
 BuildRequires:	gettext-tools >= 0.19.4
@@ -70,7 +70,7 @@ Statyczna biblioteka gspell.
 Summary:	API documentation for gspell library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki gspell
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
+%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
 %endif
 
@@ -86,7 +86,7 @@ Summary(pl.UTF-8):	API języka Vala do biblioteki gspell
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala
-%if "%{_rpmversion}" >= "5"
+%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
 %endif
 
