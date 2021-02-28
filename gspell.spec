@@ -70,9 +70,7 @@ Statyczna biblioteka gspell.
 Summary:	API documentation for gspell library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki gspell
 Group:		Documentation
-%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for gspell library.
@@ -86,9 +84,7 @@ Summary(pl.UTF-8):	API języka Vala do biblioteki gspell
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala
-%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
-%endif
 
 %description -n vala-gspell
 Vala API for gspell library.
