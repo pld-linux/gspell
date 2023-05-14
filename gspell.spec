@@ -6,7 +6,7 @@ Summary:	gspell - a spell-checking library for GTK+
 Summary(pl.UTF-8):	gspell - biblioteka sprawdzania pisowni dla GTK+
 Name:		gspell
 Version:	1.12.1
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.gnome.org/sources/gspell/1.12/%{name}-%{version}.tar.xz
@@ -113,6 +113,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libgspell-1.la
+
+# not supported by glibc yet
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
 
 %find_lang gspell-1
 
