@@ -5,27 +5,29 @@
 Summary:	gspell - a spell-checking library for GTK+
 Summary(pl.UTF-8):	gspell - biblioteka sprawdzania pisowni dla GTK+
 Name:		gspell
-Version:	1.12.2
+Version:	1.14.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.gnome.org/sources/gspell/1.12/%{name}-%{version}.tar.xz
-# Source0-md5:	f1e5f02695aee20ba543352889c28ff5
+Source0:	https://download.gnome.org/sources/gspell/1.14/%{name}-%{version}.tar.xz
+# Source0-md5:	282c1ed7213a657e47de663fd2a081db
 URL:		https://wiki.gnome.org/Projects/gspell
-BuildRequires:	enchant2-devel >= 2.1.3
+BuildRequires:	enchant2-devel >= 2.2
 BuildRequires:	gettext-tools >= 0.19.6
 BuildRequires:	glib2-devel >= 1:2.44
 BuildRequires:	gobject-introspection-devel >= 1.42.0
 BuildRequires:	gtk+3-devel >= 3.20
 BuildRequires:	gtk-doc >= 1.25
 BuildRequires:	libicu-devel
+BuildRequires:	meson >= 0.64
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.6
-BuildRequires:	rpmbuild(macros) >= 1.98
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala
 BuildRequires:	xz
-Requires:	enchant2 >= 2.1.3
+Requires:	enchant2 >= 2.2
 Requires:	glib2 >= 1:2.44.0
 Requires:	gtk+3 >= 3.20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,7 +47,7 @@ Summary:	Header files for gspell library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki gspell
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	enchant2-devel >= 2.1.3
+Requires:	enchant2-devel >= 2.2
 Requires:	glib2-devel >= 1:2.44
 Requires:	gtk+3-devel >= 3.20
 Requires:	libicu-devel
@@ -98,21 +100,16 @@ API języka Vala do biblioteki gspell.
 %setup -q
 
 %build
-%configure \
-	--disable-silent-rules \
-	%{?with_static_libs:--enable-static} \
-	--with-html-dir=%{_gtkdocdir}
+%meson build \
+	%{!?with_static_libs:--default-library=shared} \
+	-Dinstall_tests=false
 
-%{__make}
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-
-# obsoleted by pkg-config
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgspell-1.la
+%ninja_install -C build
 
 # not supported by glibc yet
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
@@ -127,10 +124,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f gspell-1.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README
+%doc AUTHORS NEWS README.md
 %attr(755,root,root) %{_bindir}/gspell-app1
-%attr(755,root,root) %{_libdir}/libgspell-1.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgspell-1.so.2
+%attr(755,root,root) %{_libdir}/libgspell-1.so.3
 %{_libdir}/girepository-1.0/Gspell-1.typelib
 
 %files devel
@@ -148,7 +144,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/gspell-1.0
+%{_gtkdocdir}/gspell-1
 
 %files -n vala-gspell
 %defattr(644,root,root,755)
