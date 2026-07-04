@@ -5,12 +5,12 @@
 Summary:	gspell - a spell-checking library for GTK+
 Summary(pl.UTF-8):	gspell - biblioteka sprawdzania pisowni dla GTK+
 Name:		gspell
-Version:	1.14.3
+Version:	1.14.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.gnome.org/sources/gspell/1.14/%{name}-%{version}.tar.xz
-# Source0-md5:	f8d254f9865d23d7ab68bf94985a05e6
+# Source0-md5:	f2baf4a418c57e0dc044d50ffc0dcf62
 URL:		https://gitlab.gnome.org/GNOME/gspell
 BuildRequires:	enchant2-devel >= 2.2
 BuildRequires:	gettext-tools >= 0.19.6
